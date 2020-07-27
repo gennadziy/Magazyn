@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <style>
+        table.horizontal-align
+        th {
+
+            border-spacing: 0 5px;
+            font:   100% Georgia, serif;
+            margin: 5px ;
+            background: #B1B9D9;
+            text-align: center;
+            vertical-align: middle;
+            width: 30%;
+            border: 1px solid #090606;
+        }
+
+        td {
+
+            border-spacing: 0 5px;
+            font:  100% Georgia, serif;
+            margin: 5px ;
+            background: #B1B9D9;
+            text-align: center;
+            vertical-align: middle;
+            width: 30%;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+<p><a th:href="@{/add}">Add new PRODUCT</a></p>
+<p><a th:href="@{/logout}">Logout</a></p>
+<table border="1" class="table table-bordered table-hover horizontal-align">
+    <thead>
+    <tr>
+        <th>Номер</th>
+        <th>Наименование товара</th>
+        <th>ДАТА ЗАКАЗА В КИТАЕ</th>
+        <th>Цена в китае</th>
+        <th>Стоимость доставки</th>
+        <th>Тстоимость растаможки</th>
+        <th>Полная с/с</th>
+        <th>Цена конкурентов</th>
+        <th>Цена наша</th>
+        <th>Рентабельность %</th>
+        <th>Прибыль черная</th>
+        <th>Чистая прибыль</th>
+        <th>Сертификат СЕ</th>
+        <th>Дата выхода с завода/Китая</th>
+        <th>Название компании</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="produkt : ${produkts}">
+        <td th:text="${produkt.id}" style="text-align: center"></td>
+        <td th:text="${produkt.name}"></td>
+        <td th:text="${produkt.date}" style="text-align: center"></td>
+        <td th:text="${produkt.cost_of_delivery}" style="text-align: center"></td>
+        <td th:text="${produkt.cost_of_deliver}" style="text-align: center"></td>
+        <td th:text="${produkt.cost_of_custom}" style="text-align: center"></td>
+        <td th:text="${produkt.cost_all}" style="text-align: center"></td>
+        <td th:text="${produkt.price_konk}" style="text-align: center"></td>
+        <td th:text="${produkt.price_our}" style="text-align: center"></td>
+        <td th:text="${produkt.price_our}" style="text-align: center"></td>
+        <td th:text="${produkt.price_our}" style="text-align: center"></td>
+        <td th:text="${produkt.price_our}" style="text-align: center"></td>
+        <td th:text="${produkt.price_our}" style="text-align: center"></td>
+        <td th:text="${produkt.price_our}" style="text-align: center"></td>
+        <td th:text="${produkt.price_our}" style="text-align: center"></td>
+        <!--<td><a th:href="@{/edit/{id}(id=${user.id})}">Edit</a></td>-->
+        <!--<td><a th:href="@{/delete/{id}(id=${produkt.id})}">Delete</a></td>-->
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
