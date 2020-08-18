@@ -33,11 +33,12 @@
 </head>
 <body>
 <p><a th:href="@{/add}">Add new PRODUCT</a></p>
-<p><a th:href="@{/logout}">Logout</a></p>
+<p><a th:href="@{/addClient}">Add Client</a></p>
 <table border="1" class="table table-bordered table-hover horizontal-align">
     <thead>
     <tr>
         <th>Номер</th>
+        <th>Номер_product</th>
         <th>Наименование товара</th>
         <th>ДАТА ЗАКАЗА В КИТАЕ</th>
         <th>Цена в китае</th>
@@ -57,6 +58,7 @@
     <tbody>
     <tr th:each="produkt : ${produkts}">
         <td th:text="${produkt.id}" style="text-align: center"></td>
+        <td th:text="${produkt.clients.id}" style="text-align: center"></td>
         <td th:text="${produkt.name}"></td>
         <td th:text="${produkt.date}" style="text-align: center"></td>
         <td th:text="${produkt.cost_of_delivery}" style="text-align: center"></td>
@@ -65,15 +67,30 @@
         <td th:text="${produkt.cost_all}" style="text-align: center"></td>
         <td th:text="${produkt.price_konk}" style="text-align: center"></td>
         <td th:text="${produkt.price_our}" style="text-align: center"></td>
-        <td th:text="${produkt.price_our}" style="text-align: center"></td>
-        <td th:text="${produkt.price_our}" style="text-align: center"></td>
-        <td th:text="${produkt.price_our}" style="text-align: center"></td>
-        <td th:text="${produkt.price_our}" style="text-align: center"></td>
-        <td th:text="${produkt.price_our}" style="text-align: center"></td>
-        <td th:text="${produkt.price_our}" style="text-align: center"></td>
+        <td th:text="${produkt.rentabeln}" style="text-align: center"></td>
+        <td th:text="${produkt.bl_profit}" style="text-align: center"></td>
+        <td th:text="${produkt.clear_profit}" style="text-align: center"></td>
+        <td th:text="${produkt.ce}" style="text-align: center"></td>
+        <td th:text="${produkt.date_china}" style="text-align: center"></td>
+        <td th:text="${produkt.name_company}" style="text-align: center"></td>
         <!--<td><a th:href="@{/edit/{id}(id=${user.id})}">Edit</a></td>-->
         <!--<td><a th:href="@{/delete/{id}(id=${produkt.id})}">Delete</a></td>-->
     </tr>
+    </tbody>
+</table>
+
+<table border="1" class="table table-bordered table-hover horizontal-align">
+    <thead>
+    <tr>
+        <th>Номер</th>
+        <th>ДАТА ЗАКАЗА В КИТАЕ</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="client : ${clients}">
+        <td th:text="${client.id}" style="text-align: center"></td>
+        <td th:text="${client.name}"></td>
+      </tr>
     </tbody>
 </table>
 

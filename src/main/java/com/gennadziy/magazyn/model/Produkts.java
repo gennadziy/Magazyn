@@ -11,11 +11,9 @@ import java.util.Date;
 @Data
 @Table
 @Entity
-public class Produkts implements Serializable {
-
-    static final long serialVersionUID = 1L;
+public class Produkts {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private String name;
@@ -28,9 +26,17 @@ public class Produkts implements Serializable {
     private double cost_all;
     private double price_konk;
     private double price_our;
+    private double rentabeln;
+    private double bl_profit;
+    private double clear_profit;
+    private boolean ce;
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date date_china = new Date();
+    private String name_company;
 
 
-    public String getName () {
-        return name.toUpperCase ();
-    }
+    @ManyToOne(fetch=FetchType.LAZY, cascade = { CascadeType.ALL })
+    @JoinColumn(name="clients_id")
+    private Clients clients;
 }
