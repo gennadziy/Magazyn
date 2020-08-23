@@ -29,7 +29,10 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter { // (1)
                 .logout() // (6)
                 .permitAll()
                 .and()
-                .httpBasic(); // (7)
+                .httpBasic() // (7)
+                .and ()
+                .logout()
+                .permitAll();
     }
 
 
@@ -46,7 +49,7 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter { // (1)
                 User.withDefaultPasswordEncoder()
                         .username("Q")
                         .password("1")
-                        .roles("USER")
+                        .roles("ADMIN")
                         .build();
 
         return new InMemoryUserDetailsManager (user,user1);
