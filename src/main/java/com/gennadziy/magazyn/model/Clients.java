@@ -1,6 +1,7 @@
 package com.gennadziy.magazyn.model;
 
 import lombok.Data;
+import org.apache.catalina.User;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -13,7 +14,7 @@ import java.util.Set;
 public class Clients  {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -29,6 +30,8 @@ public class Clients  {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy="clients")
     @Basic(optional = false)
     private Set<Produkts> items;
+
+
 
 
 }

@@ -38,6 +38,12 @@ public class MainContr {
         return "add";
     }
 
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
     @PostMapping("/add")
     public String addUser(Produkts produkts,  Model model, Clients clients) {
         produktService.add ( produkts );
