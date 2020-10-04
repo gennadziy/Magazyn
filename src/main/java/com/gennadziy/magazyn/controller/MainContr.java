@@ -1,5 +1,6 @@
 package com.gennadziy.magazyn.controller;
 
+import com.gennadziy.magazyn.dao.ProduktDao;
 import com.gennadziy.magazyn.model.Clients;
 import com.gennadziy.magazyn.model.Produkts;
 import com.gennadziy.magazyn.service.ClientService;
@@ -9,15 +10,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Controller
 @Slf4j
 public class MainContr {
 
+    @Autowired
+    private ProduktDao produktDao;
     @Autowired
     private ProduktService produktService;
 
@@ -38,6 +44,12 @@ public class MainContr {
         return "add";
     }
 
+
+    @GetMapping("/clients/{id}")
+    public @ResponseBody
+    Optional <Produkts> listClients( @PathVariable(value = "id") Long id) {
+        return  produktDao.findById ( id );
+    }
 
     @GetMapping("/login")
     public String login() {

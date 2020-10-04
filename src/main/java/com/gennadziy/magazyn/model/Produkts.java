@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 
 @Data
@@ -35,7 +36,8 @@ public class Produkts {
     private String name_company;
 
 
-    @ManyToOne(fetch=FetchType.LAZY, cascade = { CascadeType.ALL })
-    @JoinColumn(name="clients_id")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @JoinColumn(name = "clients_id")
     private Clients clients;
+
 }

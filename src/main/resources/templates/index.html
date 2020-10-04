@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Products</title>
@@ -53,6 +53,7 @@
         <th>Сертификат СЕ</th>
         <th>Дата выхода с завода/Китая</th>
         <th>Название компании</th>
+        <th>Details</th>
     </tr>
     </thead>
     <tbody>
@@ -73,6 +74,8 @@
         <td th:text="${produkt.ce}" style="text-align: center"></td>
         <td th:text="${produkt.date_china}" style="text-align: center"></td>
         <td th:text="${produkt.name_company}" style="text-align: center"></td>
+        <td> <a th:href="@{/clients/{id}(id = ${produkt.id})}">Details</a></td>
+
         <!--<td><a th:href="@{/edit/{id}(id=${user.id})}">Edit</a></td>-->
         <!--<td><a th:href="@{/delete/{id}(id=${produkt.id})}">Delete</a></td>-->
     </tr>
@@ -87,6 +90,7 @@
     </tr>
     </thead>
     <tbody>
+
     <tr th:each="client : ${clients}">
         <td th:text="${client.id}" style="text-align: center"></td>
         <td th:text="${client.name}"></td>
